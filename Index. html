@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethio-Oxford Academy</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #061d46;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 25px;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.welcome {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    color: #061d46;
+    margin-bottom: 10px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px #00000010;
+}
+
+.card h3 {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #061d46;
+}
+
+button {
+    background: #061d46;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #123b7a;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ETHIO-OXFORD</h1>
+    <p>Language & Tutoring Academy</p>
+</header>
+
+<div class="container">
+
+    <div class="welcome">
+        <h2>Welcome to Admin Dashboard</h2>
+        <p>Manage your students, teachers, attendance, results and payments.</p>
+
+        <button onclick="alert('Student Registration will be added next!')">
+            Register Student
+        </button>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Teachers</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Attendance</h3>
+            <p>0%</p>
+        </div>
+
+        <div class="card">
+            <h3>Monthly Income</h3>
+            <p>0 Birr</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Ethio-Oxford Language & Tutoring Academy
+</footer>
+
+</body>
+</html>
