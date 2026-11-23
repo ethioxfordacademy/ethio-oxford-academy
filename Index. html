@@ -3,149 +3,1029 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ethio-Oxford Academy</title>
+
+<title>Ethio-Oxford Academy | Admin</title>
 
 <style>
+:root {
+    --navy: #10264f;
+    --navy-dark: #091a38;
+    --gold: #d6a84f;
+    --background: #f4f6fb;
+    --white: #ffffff;
+    --text: #25324b;
+    --muted: #7b879c;
+    --border: #e7ebf2;
+    --green: #159b72;
+    --red: #e05252;
+}
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-    background: #f1f5f9;
-    color: #1e293b;
+    background: var(--background);
+    color: var(--text);
 }
 
-header {
-    background: #061d46;
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    background: var(--navy-dark);
     color: white;
-    padding: 25px;
-    text-align: center;
+    padding: 25px 15px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
 }
 
-header h1 {
-    font-size: 25px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 10px 30px;
+    border-bottom: 1px solid #ffffff18;
 }
 
-header p {
-    margin-top: 8px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-.welcome {
-    background: white;
-    padding: 25px;
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--gold);
+    color: var(--navy-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 12px;
-    margin-bottom: 25px;
-}
-
-.welcome h2 {
-    color: #061d46;
-    margin-bottom: 10px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 3px 10px #00000010;
-}
-
-.card h3 {
-    color: #64748b;
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-.card p {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    color: #061d46;
 }
 
-button {
-    background: #061d46;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    margin-top: 20px;
+.logo h2 {
+    font-size: 17px;
+}
+
+.logo small {
+    color: #aab8d1;
+    font-size: 11px;
+}
+
+.menu-title {
+    color: #8191af;
+    font-size: 11px;
+    margin: 28px 12px 12px;
+    letter-spacing: 1px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #c7d2e5;
+    text-decoration: none;
+    font-size: 14px;
     cursor: pointer;
 }
 
-button:hover {
-    background: #123b7a;
+.menu a:hover,
+.menu a.active {
+    background: #ffffff15;
+    color: white;
 }
 
-footer {
+.menu a.active {
+    border-left: 3px solid var(--gold);
+}
+
+.menu-icon {
+    width: 22px;
     text-align: center;
+    font-size: 18px;
+}
+
+/* MAIN */
+
+.main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.topbar {
+    background: white;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar h3 {
+    font-size: 18px;
+    color: var(--navy);
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.admin-info small {
+    color: var(--muted);
+}
+
+.content {
+    padding: 30px;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #10264f, #25477f);
+    color: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    color: #d4deef;
+    font-size: 14px;
+}
+
+.welcome span {
+    color: var(--gold);
+}
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.stat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    background: #edf2fb;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    font-size: 20px;
+}
+
+.stat-card h4 {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.stat-card h2 {
+    font-size: 27px;
+    color: var(--navy);
+}
+
+.stat-card small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* STUDENT SECTION */
+
+.section {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-header h2 {
+    font-size: 18px;
+    color: var(--navy);
+}
+
+.section-header p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.search {
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    width: 200px;
+}
+
+.search:focus {
+    border-color: var(--gold);
+}
+
+.btn {
+    border: none;
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #25477f;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th {
+    background: #f8f9fc;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: left;
+    padding: 15px 20px;
+    font-weight: 600;
+}
+
+td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.student-name {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.student-id {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.badge {
+    background: #e8f7f1;
+    color: var(--green);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.delete-btn {
+    background: #fff0f0;
+    color: var(--red);
+    border: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.empty {
+    text-align: center;
+    padding: 45px;
+    color: var(--muted);
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #091a3877;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 15px;
     padding: 25px;
-    color: #64748b;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    color: var(--navy);
+    font-size: 20px;
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--gold);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-secondary {
+    background: #eef1f6;
+    color: var(--text);
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 25px;
+}
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 65px;
+        padding: 15px 8px;
+    }
+
+    .logo {
+        justify-content: center;
+        padding: 5px 0 20px;
+    }
+
+    .logo-text,
+    .menu-title,
+    .menu a span:last-child {
+        display: none;
+    }
+
+    .menu a {
+        justify-content: center;
+        padding: 14px 5px;
+    }
+
+    .main {
+        margin-left: 65px;
+        width: calc(100% - 65px);
+    }
+
+    .topbar {
+        padding: 0 15px;
+        height: 65px;
+    }
+
+    .topbar h3 {
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .welcome {
+        padding: 22px;
+    }
+
+    .welcome h1 {
+        font-size: 20px;
+    }
+
+    .stats {
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card h2 {
+        font-size: 22px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>ETHIO-OXFORD</h1>
-    <p>Language & Tutoring Academy</p>
-</header>
+<div class="layout">
 
-<div class="container">
+<!-- SIDEBAR -->
 
-    <div class="welcome">
-        <h2>Welcome to Admin Dashboard</h2>
-        <p>Manage your students, teachers, attendance, results and payments.</p>
+<aside class="sidebar">
 
-        <button onclick="alert('Student Registration will be added next!')">
-            Register Student
-        </button>
+    <div class="logo">
+        <div class="logo-icon">O</div>
+
+        <div class="logo-text">
+            <h2>ETHIO-OXFORD</h2>
+            <small>Language & Tutoring Academy</small>
+        </div>
     </div>
 
-    <div class="cards">
+    <div class="menu-title">MAIN MENU</div>
 
-        <div class="card">
-            <h3>Total Students</h3>
-            <p>0</p>
+    <nav class="menu">
+
+        <a class="active" href="#">
+            <span class="menu-icon">▦</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#students">
+            <span class="menu-icon">♙</span>
+            <span>Students</span>
+        </a>
+
+        <a href="#">
+            <span class="menu-icon">♧</span>
+            <span>Teachers</span>
+        </a>
+
+        <a href="#">
+            <span class="menu-icon">◷</span>
+            <span>Attendance</span>
+        </a>
+
+        <a href="#">
+            <span class="menu-icon">▤</span>
+            <span>Results</span>
+        </a>
+
+        <a href="#">
+            <span class="menu-icon">▣</span>
+            <span>Finance</span>
+        </a>
+
+        <a href="#">
+            <span class="menu-icon">▧</span>
+            <span>Courses</span>
+        </a>
+
+    </nav>
+
+    <div class="menu-title">SYSTEM</div>
+
+    <nav class="menu">
+        <a href="#">
+            <span class="menu-icon">⚙</span>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main">
+
+    <div class="topbar">
+
+        <h3>Academy Management</h3>
+
+        <div class="admin-info">
+            <div>
+                <strong>Administrator</strong><br>
+                <small>Admin Account</small>
+            </div>
+
+            <div class="admin-avatar">A</div>
         </div>
 
-        <div class="card">
-            <h3>Total Teachers</h3>
-            <p>0</p>
+    </div>
+
+    <div class="content">
+
+        <div class="welcome">
+            <h1>Welcome to <span>Ethio-Oxford</span></h1>
+
+            <p>
+                Manage your academy, students, teachers and academic activities
+                from one professional dashboard.
+            </p>
         </div>
 
-        <div class="card">
-            <h3>Attendance</h3>
-            <p>0%</p>
+        <!-- STATISTICS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <h4>Total Students</h4>
+                    <div class="stat-icon">♙</div>
+                </div>
+
+                <h2 id="totalStudents">0</h2>
+                <small>Registered students</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <h4>Total Teachers</h4>
+                    <div class="stat-icon">♧</div>
+                </div>
+
+                <h2>0</h2>
+                <small>Registered teachers</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <h4>Attendance</h4>
+                    <div class="stat-icon">◷</div>
+                </div>
+
+                <h2>0%</h2>
+                <small>Today's attendance</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <h4>Monthly Income</h4>
+                    <div class="stat-icon">₿</div>
+                </div>
+
+                <h2>0</h2>
+                <small>Birr collected</small>
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Monthly Income</h3>
-            <p>0 Birr</p>
+        <!-- STUDENTS -->
+
+        <section class="section" id="students">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Student Management</h2>
+                    <p>Register and manage academy students</p>
+                </div>
+
+                <div class="actions">
+
+                    <input
+                        type="search"
+                        class="search"
+                        id="searchStudent"
+                        placeholder="Search students..."
+                    >
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="openModal()"
+                    >
+                        + Add Student
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>STUDENT</th>
+                            <th>GRADE</th>
+                            <th>COURSE</th>
+                            <th>PHONE</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Ethio-Oxford Language & Tutoring Academy
+    </div>
+
+</main>
+
+</div>
+
+<!-- STUDENT REGISTRATION MODAL -->
+
+<div class="modal" id="studentModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h2>Register New Student</h2>
+
+            <button class="close" onclick="closeModal()">×</button>
         </div>
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="">Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Grade *</label>
+                    <select id="grade" required>
+                        <option value="">Select Grade</option>
+                        <option>Grade 1</option>
+                        <option>Grade 2</option>
+                        <option>Grade 3</option>
+                        <option>Grade 4</option>
+                        <option>Grade 5</option>
+                        <option>Grade 6</option>
+                        <option>Grade 7</option>
+                        <option>Grade 8</option>
+                        <option>Grade 9</option>
+                        <option>Grade 10</option>
+                        <option>Grade 11</option>
+                        <option>Grade 12</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Course *</label>
+                    <select id="course" required>
+                        <option value="">Select Course</option>
+                        <option>English Language</option>
+                        <option>Mathematics</option>
+                        <option>Computer / IT</option>
+                        <option>Physics</option>
+                        <option>Chemistry</option>
+                        <option>Biology</option>
+                        <option>All Subjects Tutoring</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Student Phone</label>
+                    <input type="tel" id="phone">
+                </div>
+
+                <div class="form-group">
+                    <label>Parent Phone</label>
+                    <input type="tel" id="parentPhone">
+                </div>
+
+            </div>
+
+            <div class="form-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="closeModal()"
+                >
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Student
+                </button>
+
+            </div>
+
+        </form>
 
     </div>
 
 </div>
 
-<footer>
-    © 2026 Ethio-Oxford Language & Tutoring Academy
-</footer>
+<script>
+let students = JSON.parse(
+    localStorage.getItem("ethioOxfordStudents") || "[]"
+);
+
+function saveStudents() {
+    localStorage.setItem(
+        "ethioOxfordStudents",
+        JSON.stringify(students)
+    );
+}
+
+function openModal() {
+    document.getElementById("studentModal").classList.add("show");
+}
+
+function closeModal() {
+    document.getElementById("studentModal").classList.remove("show");
+}
+
+function renderStudents(list = students) {
+
+    const table = document.getElementById("studentTable");
+
+    table.innerHTML = "";
+
+    document.getElementById("totalStudents").textContent =
+        students.length;
+
+    if (list.length === 0) {
+
+        table.innerHTML = `
+            <tr>
+                <td colspan="6" class="empty">
+                    No students found. Register your first student.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+    list.forEach(student => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>
+                <div class="student-name"></div>
+                <div class="student-id"></div>
+            </td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td>
+                <span class="badge">Active</span>
+            </td>
+
+            <td>
+                <button
+                    class="delete-btn"
+                    data-id="${student.id}"
+                >
+                    Delete
+                </button>
+            </td>
+        `;
+
+        row.querySelector(".student-name").textContent =
+            student.name;
+
+        row.querySelector(".student-id").textContent =
+            student.id;
+
+        row.children[1].textContent = student.grade;
+        row.children[2].textContent = student.course;
+        row.children[3].textContent = student.phone || "-";
+
+        table.appendChild(row);
+    });
+}
+
+document.getElementById("studentForm").addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        const student = {
+
+            id: "EO" + Date.now().toString().slice(-6),
+
+            name: document.getElementById("fullName").value.trim(),
+
+            gender: document.getElementById("gender").value,
+
+            grade: document.getElementById("grade").value,
+
+            course: document.getElementById("course").value,
+
+            phone: document.getElementById("phone").value,
+
+            parentPhone:
+                document.getElementById("parentPhone").value,
+
+            status: "Active"
+
+        };
+
+        students.push(student);
+
+        saveStudents();
+
+        renderStudents();
+
+        this.reset();
+
+        closeModal();
+
+        alert("Student registered successfully!");
+    }
+);
+
+document.getElementById("searchStudent").addEventListener(
+    "input",
+    function() {
+
+        const query = this.value.toLowerCase();
+
+        const filtered = students.filter(student =>
+
+            student.name.toLowerCase().includes(query) ||
+
+            student.id.toLowerCase().includes(query) ||
+
+            student.grade.toLowerCase().includes(query) ||
+
+            student.course.toLowerCase().includes(query)
+
+        );
+
+        renderStudents(filtered);
+    }
+);
+
+document.getElementById("studentTable").addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target.classList.contains("delete-btn")) {
+
+            const id = event.target.dataset.id;
+
+            if (confirm("Are you sure you want to delete this student?")) {
+
+                students = students.filter(
+                    student => student.id !== id
+                );
+
+                saveStudents();
+
+                renderStudents();
+            }
+        }
+    }
+);
+
+renderStudents();
+</script>
 
 </body>
 </html>
